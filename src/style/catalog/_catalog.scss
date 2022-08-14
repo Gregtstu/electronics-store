@@ -16,21 +16,11 @@
     gap: 72px 30px;
 
   }
-
   &__pagination {
     grid-column: 2 span;
   }
 
   &__filter-btn {
     display: none;
-
-      &:after {
-        content: '';
-        display: block;
-        width: 18px;
-        height: 18px;
-        background-image: url('img/arrow-v.svg');
-      }
-    }
   }
-
+}
