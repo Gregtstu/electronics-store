@@ -1,0 +1,36 @@
+.catalog {
+  &__container {
+    position: relative;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 54px;
+    margin-bottom: 10px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 4fr 340px;
+    gap: 72px 30px;
+
+  }
+
+  &__pagination {
+    grid-column: 2 span;
+  }
+
+  &__filter-btn {
+    display: none;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 18px;
+        height: 18px;
+        background-image: url('img/arrow-v.svg');
+      }
+    }
+  }
+
