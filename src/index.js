@@ -13,8 +13,34 @@ const paginationWrapper = document.querySelector('.pagination');
 const pageURL = new URL(location);
 const page = +(pageURL.searchParams.get('page')) || 1;
 
+let isMobile = false;
+
+const startPagination = () => {
+
+    if (window.innerWidth <= 560) {
+        pagination(paginationWrapper, 20, page, 4);
+        isMobile = true;
+    } else {
+        pagination(paginationWrapper, 20, page, 6);
+        isMobile = false;
+    }
+}
+
 try {
-    pagination(paginationWrapper, 20, page,  6);
+    startPagination();
+    // pagination(paginationWrapper, 20, page,  6);
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 560 && !isMobile) {
+            pagination(paginationWrapper, 20, page, 4);
+            isMobile = true;
+        }
+
+        if (window.innerWidth > 560 && isMobile)  {
+            pagination(paginationWrapper, 20, page, 6);
+            isMobile = false;
+        }
+    })
+
 } catch (error) {
     console.log(error);
     console.log('не главная страница');
