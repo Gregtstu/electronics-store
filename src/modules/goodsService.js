@@ -1,21 +1,26 @@
 import {API_URI} from "./var";
 
+export const getGoods = () => {
 
-export const getGoods = ({page}) => {
-  const url = new URL(`http://localhost:3024/api/goods`);
-  if (page) url.searchParams.append('page', page)
+  const pageURL = new URL(location);
 
-  return fetch(url).then(res => res.json());
+  const url = new URL(`${API_URI}/api/goods`);
+
+  for (const [name, value] of pageURL.searchParams.entries()) {
+    url.searchParams.set(name, value)
+  }
+
+  return fetch(url).then(response => response.json())
 };
 
-// export const getGoodsItem = (id) =>
-//   fetch(`${API_URI}api/goods/${id}`)
-//     .then(response => response.json())
-//
-//
-// export const getCategory = () =>
-//   fetch(`${API_URI}api/category`)
-//     .then(response => response.json())
+export const getGoodsItem = (id) =>
+  fetch(`${API_URI}/api/goods/${id}`)
+    .then(response => response.json())
+
+
+export const getCategory = () =>
+  fetch(`${API_URI}/api/category`)
+    .then(response => response.json())
 //
 // export const getGoodsList = list =>
 //   fetch(`${API_URI}api/goods/?list=${list}`)

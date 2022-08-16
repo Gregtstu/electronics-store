@@ -2,13 +2,15 @@ import {API_URI} from "./var";
 
 export const renderGoods = (wrapper, goods, classWrapperCard) => {
   wrapper.textContent = '';
-  // if (!goods.length) {
-  //   wrapper.innerHTML = '<h2>Нет товаров по вашему запросу</h2>'
-  // }
+
+  if (!goods.length) {
+    wrapper.innerHTML = '<h2>Нет товаров по вашему запросу</h2>'
+  }
 
   const cards = goods.map(item => {
     const li = document.createElement('li');
     li.className = classWrapperCard;
+
     li.innerHTML = `
       <article class="goods-item">
         <a href="card.html?id=${item.id}">
@@ -29,8 +31,7 @@ export const renderGoods = (wrapper, goods, classWrapperCard) => {
     `;
 
     return li;
-
   });
 
-  wrapper.append(...cards);
+  wrapper.append(...cards)
 }
