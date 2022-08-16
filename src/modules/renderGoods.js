@@ -15,7 +15,7 @@ export const renderGoods = (wrapper, goods, classWrapperCard) => {
       <article class="goods-item">
         <a href="card.html?id=${item.id}">
           <img class="goods-item__image" 
-            src="${API_URI}/${item.images.present}" 
+            src="${API_URI}${item.images.present}" 
             alt="${item.title}"
             width="340"
             height="340"

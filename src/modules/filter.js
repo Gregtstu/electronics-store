@@ -1,30 +1,29 @@
 import {getCategory, getGoods} from "./goodsService";
 import {renderGoods} from "./renderGoods";
 import {startPagination} from "./pagination";
-// import {hideOverlay, showOverlay} from "./overlay";
+import {hideOverlay, showOverlay} from "./overlay";
 
-// const toggleFilter = (filter, catalogFilterBtn, filterTitle) => {
-//   catalogFilterBtn.addEventListener('click', () => {
-//     filter.classList.add('filter_show');
-//     showOverlay();
-//   });
-//
-//   filterTitle.addEventListener('click', () => {
-//     filter.classList.remove('filter_show');
-//     hideOverlay();
-//   })
-// }
+const toggleFilter = (filter, catalogFilterBtn, filterTitle) => {
+  catalogFilterBtn.addEventListener('click', () => {
+    filter.classList.add('filter_show');
+    showOverlay();
+  });
 
-export const filter = () => {  //goodsList, paginationWrapper
-  // const filter = document.querySelector('.filter');
-  // const catalogFilterBtn = document.querySelector('.catalog__filter-btn');
+  filterTitle.addEventListener('click', () => {
+    filter.classList.remove('filter_show');
+    hideOverlay();
+  })
+}
+
+export const filter = (goodsList, paginationWrapper) => {
+  const filter = document.querySelector('.filter');
+  const catalogFilterBtn = document.querySelector('.catalog__filter-btn');
   const category = document.querySelector('#category');
-  // const filterTitle = document.querySelector('.filter__title');
+  const filterTitle = document.querySelector('.filter__title');
 
-  // toggleFilter(filter, catalogFilterBtn, filterTitle);
+  toggleFilter(filter, catalogFilterBtn, filterTitle);
 
   getCategory().then(categoryList => {
-    console.log(categoryList);
     for (const categoryListKey in categoryList) {
       const option = document.createElement('option');
       option.value = categoryListKey;
@@ -89,5 +88,7 @@ export const filter = () => {  //goodsList, paginationWrapper
       renderGoods(goodsList, goods, 'goods__item');
       startPagination(paginationWrapper, pages, page);
     })
+
+
   });
 }

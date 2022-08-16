@@ -9,7 +9,7 @@ const createCardImageSlider = (largeImages) => {
     const li = document.createElement('li');
     li.className = 'swiper-slide';
     const img = new Image();
-    img.src = `${API_URI}/${url}`;
+    img.src = `${API_URI}${url}`;
     li.append(img);
     return li;
   })
@@ -29,7 +29,7 @@ const createCardImageThumbSlider = (smallImages) => {
     const button = document.createElement('button');
     button.className = 'card__thumb-btn';
     const img = new Image();
-    img.src = `${API_URI}/${url}`;
+    img.src = `${API_URI}${url}`;
     button.append(img);
     li.append(button);
     return li;
