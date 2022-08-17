@@ -1,7 +1,7 @@
 .pagination {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 21px;
   font-size: 18px;
   line-height: 22px;
@@ -16,36 +16,43 @@
 
     &_start {
       transform: rotate(180deg);
+      opacity: 50%;
     }
 
-    &[href=""] {
-      opacity: 0.3;
+    &:hover {
+      color: $color-main;
+    }
+
+    &[href=''] {
+      opacity: 30%;
       pointer-events: none;
     }
   }
 
   &__list {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     gap: 10px;
   }
 
   &__link {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     width: 36px;
     height: 36px;
     border: 2px solid transparent;
     border-radius: 2px;
-    transition: border-color .2s ease;
+    transition: border-color 0.2s ease, color 0.25s ease-in-out;
+
+    &:hover {
+      color: $color-main;
+    }
 
     &_active {
       border-color: $color-main;
+      pointer-events: none;
     }
   }
-
-
-
 }

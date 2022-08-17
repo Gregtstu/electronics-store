@@ -5,20 +5,15 @@
   @include tablet {
     display: none;
     position: absolute;
+    background-color: $color-secondary;
     top: 0;
     right: 0;
-    background-color: $color-secondary;
-    z-index: 150;
+    z-index: 555;
     padding: 14px 20px 26px;
-    max-width: 350px;
 
     &_show {
       display: block;
     }
-  }
-
-  @include mobile {
-    max-width: 320px;
   }
 
   &__form {
@@ -33,89 +28,47 @@
 
     @include tablet {
       display: flex;
-      gap: 5px;
       align-items: center;
+      gap: 5px;
       font-size: 22px;
       line-height: 27px;
       justify-content: flex-end;
 
-      &::after {
+      &:after {
         content: '';
-        transform: rotate(270deg);
         display: block;
         width: 18px;
         height: 18px;
-        background-image: url('img/arrow.svg');
+        background-image: url('img/arrow-v.svg');
+        transform: rotate(180deg);
       }
-    }
 
-    @include mobile {
-      font-size: 14px;
-      line-height: 17px;
     }
   }
 
   &__fields-list {
     margin-bottom: 40px;
-
-    @include mobile {
-      margin-bottom: 30px;
-    }
   }
 
   &__field {
     margin-bottom: 30px;
 
-    @include mobile {
-      margin-bottom: 15px;
-    }
-
     &:last-child {
       margin-bottom: 0;
     }
-
-    &-title {
-      font-weight: 500;
-      font-size: 20px;
-      line-height: 24px;
-      margin-bottom: 10px;
-
-      @include mobile {
-        font-size: 16px;
-        line-height: 20px;
-      }
-    }
   }
 
-  &__label-select {
-    position: relative;
-
-    &::after {
-      position: absolute;
-      content: '';
-      right: 33px;
-      top: 50%;
-      transform: translateY(calc(-50% - 3px)) rotate(45deg);
-      display: block;
-      width: 10px;
-      height: 10px;
-      border-width: 2px;
-      border-style: solid;
-      border-color: transparent $color-primary $color-primary transparent;
-    }
+  &__field-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 10px;
   }
 
   &__flex {
     display: flex;
     gap: 10px;
-
-    @include laptop {
-      gap: 20px;
-    }
-
-    @include tablet {
-      gap: 10px;
-    }
+    justify-content: space-between;
 
     &_column {
       flex-direction: column;
@@ -125,79 +78,46 @@
   }
 
   &__input {
-    width: 100%;
+    width: 165px;
     font-size: 16px;
     line-height: 20px;
-    padding: 0 10px;
-    height: 38px;
-    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
     border: 1px solid $color-primary;
+    height: 38px;
 
-    &:focus {
-      content: '';
-      border: 1px solid $color-main;
-    }
-
-    @include mobile {
-      font-size: 14px;
-      line-height: 17px;
-      height: 35px;
+    @include laptop {
+      width: 145px;
     }
 
     &_select {
-      appearance: none;
       width: 100%;
       color: $color-grey;
-      background-color: #fff;
-      border: 1px solid $color-primary;
     }
 
-    &::placeholder {
+    &::placeholder{
       color: $color-grey;
     }
   }
+
 
   &__checkbox {
     margin-right: 25px;
-
   }
 
   &__apply {
-    outline: none;
-    display: block;
     margin: 0 auto;
+    display: block;
+    background-color: $color-primary;
+    color: $color-secondary;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
-    background-color: $color-primary;
-    color: $color-secondary;
     padding: 8px 20px;
-    border: 1px solid $color-primary;
-    transition: background-color 0.25s ease-in-out, border 0.25s ease-in-out;
+    border: none;
 
     @include tablet {
       margin-bottom: 15px;
-    }
-
-    @include mobile {
-      font-size: 12px;
-      line-height: 15px;
-    }
-
-    &:hover {
-      background-color: $color-main;
-      border: 1px solid $color-main;
-    }
-
-    &:focus {
-      background-color: $color-main-sub;
-      border: 1px solid $color-main-sub;
-    }
-
-    &:disabled {
-      cursor: default;
-      background-color: $color-grey-light;
-      border: 1px solid $color-grey-light;
     }
   }
 
@@ -210,22 +130,13 @@
     line-height: 20px;
     color: $color-grey;
     background-color: transparent;
-    border: none;
-    transition: color 0.25s ease-in-out;
+    border: 0;
 
     @include tablet {
       position: static;
       display: block;
       margin: 0 auto;
     }
-
-    @include mobile {
-      font-size: 12px;
-      line-height: 15px;
-    }
-
-    &:hover {
-      color: $color-main;
-    }
   }
+
 }
