@@ -15,8 +15,10 @@ import {cartControl, renderCart} from "./modules/cartControl";
 import {serviceCounter} from "./modules/counterControl";
 import {searchWithoutReload} from "./modules/search";
 import {renderRecommended} from "./modules/renderRecommended";
+import {categoryInFooter} from "./modules/categoryInFooter";
 
-
+const footerListCatalog = document.querySelector('.footer__list_double');
+categoryInFooter(footerListCatalog);
 try {
   const goodsList = document.querySelector('.goods__list');
 
