@@ -25,7 +25,6 @@ export const renderRecommended = (recommended, data, id) => {
     swiperBlock.append(swiperWrapper);
 
     const goodsCards = goods.map(item => {
-      console.log(item)
       const swiperSlide = document.createElement('li');
       swiperSlide.className = 'swiper-slide';
 

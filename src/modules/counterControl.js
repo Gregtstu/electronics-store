@@ -10,7 +10,6 @@ export const serviceCounter = ({ wrapper, number, selectorDec, selectorInc }) =>
   }
 
   wrapCounter.addEventListener('click', (e) => {
-    console.log(wrapCounter)
     const target = e.target;
 
     if (target.closest(selectorDec)) {
